@@ -10,4 +10,8 @@ public class PriorityQueue_ArrayHeap<T> extends MinHeap<T> {
         super.insert(element, priority);
 
     }
+
+    public T remove(){
+        return super.remove();
+    }
 }
