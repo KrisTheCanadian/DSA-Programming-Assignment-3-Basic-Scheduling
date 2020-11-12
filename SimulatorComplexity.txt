@@ -1,0 +1,93 @@
+Time Complexity:
+
+ArrayHeap Implementation:
+Big-O:O(n) - Caused by Building the Heap
+Big-Ω:Ω(log2(n)) - Caused by Heapify Algorithm and insert for min heap
+
+SortedList Implementation:
+Big-O:O(n) - Inserting an element in a sorted array to shift all elements.
+Big-Ω:Ω(n) - Caused by Insertion to array
+
+Space Complexity:
+
+ArrayHeap Implementation:
+Big-O:O(n) - Array being used as Heap is of size n.
+Big-Ω:Ω(n) - Array being used as Heap is of size n.
+
+SortedList Implementation:
+Big-O:O(n) - Array being used for an ArrayList is of size n.
+Big-Ω:Ω(n) - Array being used for an ArrayList is of size n.
+
+Difference Between Each Implementations:
+Looking at the results between the ArrayHeap and the SortedList, the ArrayHeap finished 100k jobs in 7379ms and the SortedList finished in 50548ms. 
+This indicates that the ArrayHeap is 585% faster than the SortedList implementation for 100k jobs! 
+
+Results:
+
+Heap Array:
+
+100:
+Current system time (cycles): 3850 
+Total number of jobs executed: 100
+Average process waiting time: 1942 cycles
+Total number of priority changes: 3
+Actual system time needed to execute all jobs: 28ms 
+
+1k:
+Current system time (cycles): 35390 
+Total number of jobs executed: 1000
+Average process waiting time: 18031 cycles
+Total number of priority changes: 33
+Actual system time needed to execute all jobs: 96ms 
+
+10k:
+Current system time (cycles): 357205 
+Total number of jobs executed: 10000
+Average process waiting time: 177319 cycles
+Total number of priority changes: 333
+Actual system time needed to execute all jobs: 688ms 
+
+100k:
+Current system time (cycles): 3546901 
+Total number of jobs executed: 100000
+Average process waiting time: 1773210 cycles
+Total number of priority changes: 3333
+Actual system time needed to execute all jobs: 7379ms 
+
+1M:
+Current system time (cycles): 35501945 
+Total number of jobs executed: 1000000
+Average process waiting time: 17749106 cycles
+Total number of priority changes: 33333
+Actual system time needed to execute all jobs: 69762ms 
+
+SortedList:
+
+100:
+Current system time (cycles): 4063 
+Total number of jobs executed: 100
+Average process waiting time: 1948 cycles
+Total number of priority changes: 3
+Actual system time needed to execute all jobs: 28ms 
+
+1k:
+Current system time (cycles): 35832 
+Total number of jobs executed: 1000
+Average process waiting time: 17929 cycles
+Total number of priority changes: 34
+Actual system time needed to execute all jobs: 104ms 
+
+10k:
+Current system time (cycles): 372018 
+Total number of jobs executed: 10000
+Average process waiting time: 185908 cycles
+Total number of priority changes: 344
+Actual system time needed to execute all jobs: 771ms
+
+100k:
+
+Current system time (cycles): 3610310 
+Total number of jobs executed: 100000
+Average process waiting time: 1804994 cycles
+Total number of priority changes: 3448
+Actual system time needed to execute all jobs: 50548ms 

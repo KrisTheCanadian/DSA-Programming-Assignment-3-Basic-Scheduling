@@ -6,7 +6,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        int numJobs = 100000;
+        int numJobs = 1000000;
         Job[] jobs = autoCreateJobs(numJobs);
         var queue = new PriorityQueue_SortedList<>(numJobs, jobs[0]);
         CPU<?> cpu = new CPU<>(jobs, queue);
