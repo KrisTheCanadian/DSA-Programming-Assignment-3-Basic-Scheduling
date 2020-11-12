@@ -16,7 +16,7 @@ public class Job {
         this.jobName = jobName;
         this.jobLength = jobLength;
         this.jobPriority = jobPriority;
-        this.jobPriority = finalPriority;
+        this.finalPriority = jobPriority;
         currentJobLength = jobLength;
     }
 

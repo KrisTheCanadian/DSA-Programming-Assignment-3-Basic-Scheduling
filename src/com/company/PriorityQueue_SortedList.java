@@ -52,6 +52,7 @@ public class PriorityQueue_SortedList<T> implements IPriorityQueue<T> {
             }
             else if(currentNode == null){
                 array[i] = newNode;
+                size++;
                 return;
             }
         }
@@ -69,6 +70,13 @@ public class PriorityQueue_SortedList<T> implements IPriorityQueue<T> {
     @Override
     public int size() {
         return size;
+    }
+
+    @Override
+    public T removeLast() {
+        Node<T> popped = (Node<T>) array[size];
+        array[size] = null;
+        return popped.element;
     }
 
     public void growSize(){

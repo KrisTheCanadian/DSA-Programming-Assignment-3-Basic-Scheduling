@@ -14,6 +14,13 @@ public class MinHeap<T> {
         Heap[1] = new Node<T>(element, 1);
     }
 
+    public T removeLast(){
+        Node<T> popped = (Node<T>) Heap[size];
+        Heap[size] = null;
+        size--;
+        return popped.element;
+    }
+
     public int size(){
         return size;
     }
@@ -86,7 +93,7 @@ public class MinHeap<T> {
         Node<T> currentNode = (Node<T>) Heap[current];
         Node<T> parentNode = (Node<T>) Heap[parent(current)];
 
-        while (currentNode.priority < parentNode.priority) {
+        while ( parentNode != null && currentNode.priority < parentNode.priority) {
             swap(current, parent(current));
             current = parent(current);
             currentNode = (Node<T>) Heap[current];

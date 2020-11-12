@@ -19,4 +19,9 @@ public class PriorityQueue_ArrayHeap<T> extends MinHeap<T> implements IPriorityQ
     public int size() {
         return super.size();
     }
+
+    @Override
+    public T removeLast() {
+        return super.removeLast();
+    }
 }
