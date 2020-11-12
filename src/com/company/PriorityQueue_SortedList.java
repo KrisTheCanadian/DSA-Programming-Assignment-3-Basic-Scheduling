@@ -1,6 +1,6 @@
 package com.company;
 
-public class PriorityQueue_SortedList<T> {
+public class PriorityQueue_SortedList<T> implements IPriorityQueue<T> {
 
     private Object[] array;
     private int size;
@@ -23,6 +23,8 @@ public class PriorityQueue_SortedList<T> {
         }
         return false;
     }
+
+
 
     public void insert(T element, int priority){
         if(array.length <= size){
@@ -56,15 +58,17 @@ public class PriorityQueue_SortedList<T> {
     }
 
     public T remove(){
-        if(array.length/2 <= size){
-            shrinkSize();
-        }
         Node<T> popedElement = (Node<T>)array[0];
         for(int i = 0; i < array.length - 1; i++ ){
             array[i] = array[i + 1];
         }
         size--;
         return popedElement.element;
+    }
+
+    @Override
+    public int size() {
+        return size;
     }
 
     public void growSize(){
@@ -79,15 +83,5 @@ public class PriorityQueue_SortedList<T> {
         array = newArray;
     }
 
-    public void shrinkSize(){
-        size /= 2;
-        Object[] newArray = new Object[size];
-
-        for(int i= 0; i < size; i++){
-            newArray[i] = array[i];
-        }
-
-        array = newArray;
-    }
 
 }

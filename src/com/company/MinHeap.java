@@ -3,7 +3,7 @@ package com.company;
 public class MinHeap<T> {
 
     private Object[] Heap;
-    private int size = 0;
+    private int size;
     private int maxsize = -1;
 
     public MinHeap(int maxsize, T element){
@@ -12,6 +12,10 @@ public class MinHeap<T> {
         Heap = new Object[this.maxsize + 1];
         Heap[0] = null;
         Heap[1] = new Node<T>(element, 1);
+    }
+
+    public int size(){
+        return size;
     }
 
     private boolean isLeaf(int pos){
@@ -70,15 +74,6 @@ public class MinHeap<T> {
         Heap = newHeap;
     }
 
-    public void shrinkSize(){
-        maxsize /= 2;
-        Object[] newHeap = new Object[maxsize + 1];
-
-        for(int i= 1; i < maxsize + 1; i++){
-            newHeap[i] = Heap[i];
-        }
-        Heap = newHeap;
-    }
 
     public void insert(T element, int priority) {
         if (size >= maxsize) {
@@ -101,9 +96,6 @@ public class MinHeap<T> {
 
     public T remove()
     {
-        if(size <= maxsize/2){
-            shrinkSize();
-        }
         Node<T> popped = (Node<T>) Heap[1];
         Heap[1] = Heap[size--];
         minHeapify(1);

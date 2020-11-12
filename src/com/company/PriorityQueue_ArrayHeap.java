@@ -1,6 +1,6 @@
 package com.company;
 
-public class PriorityQueue_ArrayHeap<T> extends MinHeap<T> {
+public class PriorityQueue_ArrayHeap<T> extends MinHeap<T> implements IPriorityQueue<T> {
 
     public PriorityQueue_ArrayHeap(int maxsize, T element) {
         super(maxsize, element);
@@ -13,5 +13,10 @@ public class PriorityQueue_ArrayHeap<T> extends MinHeap<T> {
 
     public T remove(){
         return super.remove();
+    }
+
+    @Override
+    public int size() {
+        return super.size();
     }
 }
