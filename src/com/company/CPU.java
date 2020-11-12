@@ -18,7 +18,7 @@ public class CPU<T extends IPriorityQueue<Job>> {
     long actual_system_time_start;
     long actual_system_time_finish;
     long actual_system_time;
-    long averageWaitTime = 0;
+    long sumWaitTime = 0;
 
 
 
@@ -43,12 +43,12 @@ public class CPU<T extends IPriorityQueue<Job>> {
             processJob(currentJob);
             completedJobs++;
 
-            if(completedJobs % 20 == 0){
+            if(completedJobs % 30 == 0){
                 updateStarvingJob();
             }
         }
         actual_system_time_finish = System.currentTimeMillis();
-        actual_system_time = actual_system_time_finish - actual_system_time;
+        actual_system_time = actual_system_time_finish - actual_system_time_start;
         OutputReport();
     }
 
@@ -65,9 +65,9 @@ public class CPU<T extends IPriorityQueue<Job>> {
 
             outFile.write("Current system time (cycles): " + systemTime_Cycles + " \n"
                     + "Total number of jobs executed: " + totalNumberOfJobs + "\n"
-                    + "Average process waiting time: " + (averageWaitTime/completedJobs) + "\n"
+                    + "Average process waiting time: " + (sumWaitTime/completedJobs) + " cycles" + "\n"
                     + "Total number of priority changes: " + priorityChanges + "\n"
-                    + "Actual system time needed to execute all jobs: " + actual_system_time + "\n"
+                    + "Actual system time needed to execute all jobs: " + actual_system_time + "ms " + "\n"
                     );
 
             outFile.close();
@@ -80,10 +80,10 @@ public class CPU<T extends IPriorityQueue<Job>> {
 
     private void processJob(Job currentJob){
         currentJob.waitTime = System.currentTimeMillis() - currentJob.entryTime;
-        averageWaitTime += currentJob.waitTime;
+        sumWaitTime += systemTime_Cycles;
         for(CPU_Cycles = 0; CPU_Cycles < currentJob.jobLength; CPU_Cycles++){
             System.out.println("Now executing: " + currentJob.jobName + " Job Length: " + currentJob.jobLength +
-                    " Current remaining length " + CPU_Cycles + " Initial Priority: " + currentJob.jobPriority + " Current Priority: " + currentJob.finalPriority );
+                    " Current remaining length: " + CPU_Cycles + " Initial Priority: " + currentJob.jobPriority + " Current Priority: " + currentJob.finalPriority );
         }
         currentJob.endTime = System.currentTimeMillis();
         systemTime_Cycles += CPU_Cycles;

@@ -38,7 +38,7 @@ public class PriorityQueue_SortedList<T> implements IPriorityQueue<T> {
 
             if(array[i] != null){
                 if(currentNode.priority > priority){
-                    for(int j = array.length -1 ; j > i - 1; j--){
+                    for(int j = array.length -2 ; j > i - 1; j--){
                         currentNode = (Node<T>) array[j];
                         if(currentNode != null ){
                             array[j+1] = currentNode;
